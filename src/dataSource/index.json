@@ -1,0 +1,45 @@
+{
+  "data": [{
+      "id": "001",
+      "name": "Paritosh Yadav",
+      "img": "001.png",
+      "duration": "20mns"
+    },
+    {
+      "id": "002",
+      "name": "Juned Siddiqui",
+      "img": "002.png",
+      "duration": "10mns"
+    },
+    {
+      "id": "003",
+      "name": "Katie Lee",
+      "img": "003.png",
+      "duration": "You missed"
+    },
+    {
+      "id": "004",
+      "name": "Nirmal Chiraniyan",
+      "img": "004.png",
+      "duration": "He missed"
+    },
+    {
+      "id": "005",
+      "name": "Shashank Kumawat",
+      "img": "005.png",
+      "duration": "10mns"
+    },
+    {
+      "id": "006",
+      "name": "Arvind Lakhani",
+      "img": "006.png",
+      "duration": "20mns"
+    },
+    {
+      "id": "001",
+      "name": "Paritosh Yadav",
+      "img": "001.png",
+      "duration": "5mns"
+    }
+  ]
+}
