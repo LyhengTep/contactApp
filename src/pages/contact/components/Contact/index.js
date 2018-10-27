@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  StatusBar,
-  FlatList,
-  ActivityIndicator
-} from "react-native";
+import { Text, View, StatusBar, FlatList } from "react-native";
 import { Header, Icon } from "react-native-elements";
 import { GLOBAL_COLOR, FONT_SIZE, DEVICE } from "../../../../themes";
 import { pixelScaler } from "../../../../lib";
@@ -59,7 +53,6 @@ export default class Contact extends Component {
           keyExtractor={this._keyExtractor}
           style={{ marginTop: pixelScaler(20) }}
           showsVerticalScrollIndicator={false}
-          ListFooterComponent={isSearching ? null : <ActivityIndicator />}
         />
       </View>
     );
