@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, StatusBar, FlatList } from "react-native";
+import { Text, View, StatusBar, FlatList, Alert } from "react-native";
 import { Header, Icon } from "react-native-elements";
 import { GLOBAL_COLOR, FONT_SIZE, DEVICE } from "../../../../themes";
 import { pixelScaler } from "../../../../lib";
@@ -23,6 +23,22 @@ export default class Contact extends Component {
     this.props.thunkGetContactList();
   }
 
+  handleDeleteContact = item => {
+    let { deleteContact } = this.props;
+    Alert.alert(
+      "Delete",
+      "Are you sure to delete this?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => deleteContact(item) }
+      ],
+      { cancelable: false }
+    );
+  };
   renderContent = () => {
     let {
       contactList,
@@ -63,7 +79,7 @@ export default class Contact extends Component {
     return (
       <ContactList
         onRightIconPress={() => {
-          deleteContact(item);
+          this.handleDeleteContact(item);
         }}
         onContactListPress={() => {
           navigation.navigate(SCREEN_NAME.DETAILED, { id });

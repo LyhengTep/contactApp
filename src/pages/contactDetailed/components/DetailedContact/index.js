@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, FlatList, ActivityIndicator } from "react-native";
+import { Text, View, FlatList, ActivityIndicator, Alert } from "react-native";
 import { Header, Icon } from "react-native-elements";
 import { GLOBAL_COLOR, FONT_SIZE } from "../../../../themes";
 import _ from "lodash";
@@ -14,15 +14,30 @@ export default class DetailedContact extends Component {
     let { getParam } = navigation;
     thunkGetContactHistory(getParam("id"));
   }
+  handleDeleteContact = item => {
+    let { thunkDeleteContact } = this.props;
+    Alert.alert(
+      "Delete",
+      "Are you sure to delete this?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => thunkDeleteContact(item) }
+      ],
+      { cancelable: false }
+    );
+  };
 
   renderItem = ({ item }) => {
     let { duration, img, name } = item;
-    let { thunkDeleteContact } = this.props;
 
     return (
       <ContactList
         onRightIconPress={() => {
-          thunkDeleteContact(item);
+          this.handleDeleteContact(item);
         }}
         name={name}
         imgUrl={img}
